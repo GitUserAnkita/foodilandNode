@@ -18,7 +18,7 @@ exports.upload = multer({ storage: storage });
 
 exports.createRecipe = async (req, res) => {
     try {
-        console.log("image ",req.files.image)
+        console.log("req.files - -  ",req.files)
         const body = req.body;
         const userId = body.userId;
         const categoryId = body.categoryId;
