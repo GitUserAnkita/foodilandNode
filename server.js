@@ -41,6 +41,23 @@ app.get("/", (req, res) => {
   res.status(200).send("working fine")
 })
 
+
+app.get('/test',(req,res)=>{
+  var ids = [];
+  var config = {
+    method: "get",
+    url: "https://graph.instagram.com/v13.0/17841453475690097/media?access_token=IGQVJXelp5TzN6ci1TM29jd0xzQ3hMTE1vM1VvSjBIMmduTDNrSEFBWjFEUVQ5OEhMQndnOXdKSHR2U1pxR1paZA2VXckRJSTRiUzVtUUp3VnVGQ2VNVlJTdkFhWWFWLWFMQks1YmJB",
+  };
+   axios(config)
+    .then(function (response) {
+      ids = response.data.data;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  res.send(ids) ;
+})
+
 require('./route/role')(app)
 require('./route/user')(app)
 require('./route/category')(app)

@@ -50,7 +50,7 @@ exports.getAllMediaData = async (req, res) => {
           res.send(err);
         });
     }
-    console.log("=============",mediaDataArray)
+    
     res.status(200).send(mediaDataArray);
   }catch(err){
     res.send({message:err.message});
